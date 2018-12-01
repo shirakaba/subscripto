@@ -1,6 +1,6 @@
 # Subscripto
 
-An app that theoretically handles subscriptions and local receipt validation, but won't get past App Review for some reason (I'm open-sourcing it for code review).
+An app that *theoretically* handles subscriptions and local receipt validation, but won't get past App Review for some reason (I'm open-sourcing it for code review).
 
 ## Preview
 
