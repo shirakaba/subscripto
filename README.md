@@ -9,14 +9,14 @@ An app that theoretically handles subscriptions and local receipt validation, bu
 The Subscripto flow, as featured in [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) and demonstrated on my iPhone, using an iTunes Connect Sandbox tester:
 
 <div style="display: flex; width: 100%;">
-    <img src="/screenshots/0.PNG" width="200px"</img>
-    <img src="/screenshots/1.PNG" width="200px"</img>
-    <img src="/screenshots/2.PNG" width="200px"</img>
-    <img src="/screenshots/3.PNG" width="200px"</img>
-    <img src="/screenshots/4.PNG" width="200px"</img>
-    <img src="/screenshots/5.PNG" width="200px"</img>
-    <img src="/screenshots/6.PNG" width="200px"</img>
-    <img src="/screenshots/7.PNG" width="200px"</img>
+    <img src="/readme_img/0.PNG" width="200px"</img>
+    <img src="/readme_img/1.PNG" width="200px"</img>
+    <img src="/readme_img/2.PNG" width="200px"</img>
+    <img src="/readme_img/3.PNG" width="200px"</img>
+    <img src="/readme_img/4.PNG" width="200px"</img>
+    <img src="/readme_img/5.PNG" width="200px"</img>
+    <img src="/readme_img/6.PNG" width="200px"</img>
+    <img src="/readme_img/7.PNG" width="200px"</img>
 </div>
 
 Note that you will need to replace my placeholder product identifiers in `Products.swift` to match ones registered on your iTunes Connect account in order to replicate this!
@@ -28,8 +28,8 @@ In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app
 As far as I can tell, they just needed more patience for the first failure (it's their own backend causing the delay, after all), but I'm baffled by the second failure; those products *should* be appearing, as they do on my phone. It could only be explained by iTunes Connect failing to pass a populated list of products with their appropriate names into the `productsRequestCompletionHandler?(products, nil)` handler in `IAPHelper.swift`'s `extension IAPHelper: SKProductsRequestDelegate`.
 
 <div style="display: flex; width: 100%;">
-    <img src="/screenshots/review0.PNG" width="200px"</img>
-    <img src="/screenshots/review1.PNG" width="400px"</img>
+    <img src="/readme_img/review0.PNG" width="200px"</img>
+    <img src="/readme_img/review1.PNG" width="400px"</img>
 </div>
 
 ## Prior art
@@ -77,6 +77,10 @@ I've fixed a couple of weaknesses of Ray Wenderlich's ARS implementation in the 
 6. Feel free to tell me how it goes and send Pull Requests to improve this project!
 
 ## More of my stuff
+
+This app represents the subscriptions flow for my main app, LinguaBrowse – a browser for the foreign-language web, providing text transliteration (for languages like Chinese and Japanese) and tap-to-define functionality (to avoid having to switch out to a dedicated dictionary app).
+
+<img src="/readme_img/LinguaBrowse.PNG" width="64px"</img>
 
 * [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) (iOS) on the App Store – made in Swift
 * [LinguaBrowse](https://itunes.apple.com/gb/app/linguabrowse/id1422884180?mt=12) (macOS) on the App Store – made in React Native + TypeScript + Swift
