@@ -76,7 +76,8 @@ I've fixed a couple of weaknesses of Ray Wenderlich's ARS implementation in the 
 3. Do ensure that the user agreed to the Privacy Policy and Terms of Service upon returning to `ViewController`. Nothing's stopping them from refusing to press that button in `SubscriptionStore`.
 4. I provide no guarantee/warranty that this will work as intended (again, it doesn't pass App Review), nor that I will maintain it in any way. 
 5. Do provide your own `libcrypto.a` and `libssl.a` from a trusted source, rather than using my provided ones from [krzyzanowskim](https://github.com/krzyzanowskim/OpenSSL) – ideally build it yourself from source. 
-6. Feel free to tell me how it goes and send Pull Requests to improve this project!
+6. Obfuscate any function names like "permitAccess" or "checkValidity" to make the code harder to reverse-engineer and hack (Apple recommend this themselves).
+7. Feel free to tell me how it goes and send Pull Requests to improve this project!
 
 ## More of my stuff
 
