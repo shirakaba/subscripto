@@ -6,7 +6,7 @@ An app that theoretically handles subscriptions and local receipt validation, bu
 
 ### Expected flow
 
-The Subscripto flow, as featured in LinguaBrowse and demonstrated on my iPhone, using an iTunes Connect Sandbox tester:
+The Subscripto flow, as featured in [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) and demonstrated on my iPhone, using an iTunes Connect Sandbox tester:
 
 <div style="display: flex; width: 100%;">
     <img src="/screenshots/0.PNG" width="200px"</img>
@@ -23,7 +23,7 @@ Note that you will need to replace my placeholder product identifiers in `Produc
 
 ### App Review flow
 
-In the most recent App Review, the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews).
+In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8), the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews).
 
 As far as I can tell, they just needed more patience for the first failure (it's their own backend causing the delay, after all), but I'm baffled by the second failure; those products *should* be appearing, as they do on my phone. It could only be explained by iTunes Connect failing to pass a populated list of products with their appropriate names into the `productsRequestCompletionHandler?(products, nil)` handler in `IAPHelper.swift`'s `extension IAPHelper: SKProductsRequestDelegate`.
 
@@ -75,3 +75,10 @@ I've fixed a couple of weaknesses of Ray Wenderlich's ARS implementation in the 
 4. I provide no guarantee/warranty that this will work as intended (again, it doesn't pass App Review), nor that I will maintain it in any way. 
 5. Do provide your own `libcrypto.a` and `libssl.a` from a trusted source, rather than using my provided ones from [krzyzanowskim](https://github.com/krzyzanowskim/OpenSSL) – ideally build it yourself from source. 
 6. Feel free to tell me how it goes and send Pull Requests to improve this project!
+
+## More of my stuff
+
+* [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) (iOS) on the App Store – made in Swift
+* [LinguaBrowse](https://itunes.apple.com/gb/app/linguabrowse/id1422884180?mt=12) (macOS) on the App Store – made in React Native + TypeScript + Swift
+* [Plucky Box](https://itunes.apple.com/us/app/plucky-box/id1375337845?ls=1&mt=8) (iOS) on the App Store, [GitHub](https://github.com/shirakaba/react-native-typescript-2d-game), [expo.io](https://expo.io/@bottledlogic/the-box) as Android/iOS – made in React Native + TypeScript
+* [@LinguaBrowse](https://twitter.com/LinguaBrowse) – my Twitter account. I talk about NativeScript, React Native, TypeScript, Chinese, Japanese, and my apps on there.
