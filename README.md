@@ -29,7 +29,7 @@ As far as I can tell, they just needed more patience for the first failure (it's
 
 <div style="display: flex; width: 100%;">
     <img src="/readme_img/review1.PNG" width="400px"</img>
-    <img src="/readme_img/review0.PNG" width="400px"</img>
+    <img src="/readme_img/review0.PNG" width="246px"</img>
 </div>
 
 **Alternative thought:** is there some issue with local receipt validation that I need to cater for in Apple's testing environment?
