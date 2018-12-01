@@ -23,14 +23,16 @@ Note that you will need to replace my placeholder product identifiers in `Produc
 
 ### App Review flow
 
-In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8), the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews).
+In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8), the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews). Unfortunately, that's all the information I have.
 
 As far as I can tell, they just needed more patience for the first failure (it's their own backend causing the delay, after all), but I'm baffled by the second failure; those products *should* be appearing, as they do on my phone. It could only be explained by iTunes Connect failing to pass a populated list of products with their appropriate names into the `productsRequestCompletionHandler?(products, nil)` handler in `IAPHelper.swift`'s `extension IAPHelper: SKProductsRequestDelegate`.
 
 <div style="display: flex; width: 100%;">
-    <img src="/readme_img/review0.PNG" width="200px"</img>
     <img src="/readme_img/review1.PNG" width="400px"</img>
+    <img src="/readme_img/review0.PNG" width="400px"</img>
 </div>
+
+**Alternative thought:** is there some issue with local receipt validation that I need to cater for in Apple's testing environment?
 
 ## Prior art
 
