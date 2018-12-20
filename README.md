@@ -1,10 +1,10 @@
 # Subscripto
 
-An app that *theoretically* handles subscriptions and local receipt validation, but won't get past App Review for some reason (I'm open-sourcing it for code review).
+An app that handles subscriptions and local receipt validation! Used by [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) (see below).
 
 ## Preview
 
-### Expected flow
+### Working flow
 
 The Subscripto flow, as featured in [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8) and demonstrated on my iPhone, using an iTunes Connect Sandbox tester:
 
@@ -21,18 +21,22 @@ The Subscripto flow, as featured in [LinguaBrowse](https://itunes.apple.com/us/a
 
 Note that you will need to replace my placeholder product identifiers in `Products.swift` to match ones registered on your iTunes Connect account in order to replicate this!
 
-### App Review flow
+<!-- ### App Review flow -->
 
-In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8), the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews). Unfortunately, that's all the information I have.
+<!-- In the most recent App Review for [LinguaBrowse](https://itunes.apple.com/us/app/linguabrowse/id1281350165?ls=1&mt=8), the reviewer gave up at the "Processing transactions..." prompt on one review (first screenshot), and then found that no products were appearing at all on the second review (second screenshot; has also happened in previous reviews). Unfortunately, that's all the information I have. -->
 
-As far as I can tell, they just needed more patience for the first failure (it's their own backend causing the delay, after all), but I'm baffled by the second failure; those products *should* be appearing, as they do on my phone. It could only be explained by iTunes Connect failing to pass a populated list of products with their appropriate names into the `productsRequestCompletionHandler?(products, nil)` handler in `IAPHelper.swift`'s `extension IAPHelper: SKProductsRequestDelegate`.
+<!-- As far as I can tell, they just needed more patience for the first failure (it's their own backend causing the delay, after all), but I'm baffled by the second failure; those products *should* be appearing, as they do on my phone. It could only be explained by iTunes Connect failing to pass a populated list of products with their appropriate names into the `productsRequestCompletionHandler?(products, nil)` handler in `IAPHelper.swift`'s `extension IAPHelper: SKProductsRequestDelegate`. -->
 
-<div style="display: flex; width: 100%;">
+<!-- <div style="display: flex; width: 100%;">
     <img src="/readme_img/review1.PNG" width="400px"</img>
     <img src="/readme_img/review0.PNG" width="246px"</img>
-</div>
+</div> -->
 
-**Alternative thought:** is there some issue with local receipt validation that I need to cater for in Apple's testing environment?
+<!-- **Alternative thought:** is there some issue with local receipt validation that I need to cater for in Apple's testing environment? -->
+
+### Gotchas
+
+If ever your submitted build is rejected, **always** go back to your In-App Purchase metadata section. Apple may reject *all* of your subscription IAPs after each build rejection, and this fact won't be visible merely from the Resolution Center. Each time you submit, ensure that none of your subscription-related IAPs are in an error state (e.g. "pending developer action" or "metadata incomplete").
 
 ## Prior art
 
@@ -71,10 +75,10 @@ I've fixed a couple of weaknesses of Ray Wenderlich's ARS implementation in the 
 
 ## Notes if you want to base a project on this
 
-1. It doesn't seem to pass App Review as-is, so good luck
+1. Replace my placeholder product identifiers in `Products.swift` to match ones registered on your iTunes Connect account.
 2. Don't use my (HTTP Status 404) Privacy Policy and Terms of Service; provide your own custom ones.
 3. Do ensure that the user agreed to the Privacy Policy and Terms of Service upon returning to `ViewController`. Nothing's stopping them from refusing to press that button in `SubscriptionStore`.
-4. I provide no guarantee/warranty that this will work as intended (again, it doesn't pass App Review), nor that I will maintain it in any way. 
+4. I provide no guarantee/warranty that this will work as intended, nor that I will maintain it in any way. 
 5. Do provide your own `libcrypto.a` and `libssl.a` from a trusted source, rather than using my provided ones from [krzyzanowskim](https://github.com/krzyzanowskim/OpenSSL) – ideally build it yourself from source. 
 6. Obfuscate any function names like "permitAccess" or "checkValidity" to make the code harder to reverse-engineer and hack (Apple recommend this themselves).
 7. Feel free to tell me how it goes and send Pull Requests to improve this project!
